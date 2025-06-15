@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest Form</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <h2>Welcome To Event Guest List Manager</h2>
+    </header>
+    
+    <section id="section1">
+        <form>
+            <label for="name">  <nav>Name</nav></label>
+            <input type="text" class="inputs" placeholder="Guest name" required>
+
+            <label for="Age">Age</label>
+            <input type="number" class="inputs" placeholder="Age" required>
+
+            <label for="status">Status</label>
+            <input type="text" list="status" class="inputs" placeholder="status" required>
+            <datalist id="status">
+                <option value="single">
+                <option value="married">
+            </datalist>
+
+            <label for="email">Email</label>
+            <input type="email" class="inputs" placeholder="email" required>
+
+             <button type="submit" id="buttonsubmit" onclick="SubmitEvent()">submit</button>
+        </form>
+            
+    </section>
+
+    <section>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Guest Name</th>
+                        <th>Age</th>
+                        <th>Status</th>
+                        <th>email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Abdibasit Osman</td>
+                        <td>23</td>
+                        <td>single</td>
+                        <td>example@gmail.com</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <script src="./src/index.js"></script>
+</body>
+</html>
