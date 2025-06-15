@@ -1,3 +1,4 @@
+// Accessing HTML document using a DOM selector 
 const formEntry = document.getElementById("formEntry");
 const nameInput = document.getElementById("nameInput");
 const ageInput = document.getElementById("ageInput");
@@ -6,8 +7,8 @@ const emailInput = document.getElementById("emailInput");
 const tableBody = document.getElementById("tableBody");
 
 let inputArray = [];
-let inputId = 1;
 
+//  function to add eventlistener
 formEntry.addEventListener("submit", function(e){
     e.preventDefault();
 
@@ -18,14 +19,32 @@ formEntry.addEventListener("submit", function(e){
 
    console.log({GuestName: name, guestAge: age, guestStatus: status, guestEmail: email});
 
-//    validating inputs
+//  validating inputs
     if( age <= 0){
         alert('please enter correct inputs')
         return;
     }
+     if(true){
+        inputArray.push({nameInput: name, ageInput: age, statusInput: status, emailInput: email})
+        renderFormInput();
+     }
 
-    if(true){
-        inputArray.push(name, age, status, email)
-    }
-    
+    formEntry.reset();
 });
+
+//  function to rendor info 
+    function renderFormInput(){
+        tableBody.innerHTML = "";
+
+        inputArray.forEach(item =>{
+            tableBody.innerHTML += `
+                    <tr>
+                        <td>${item.nameInput}</td>
+                        <td>${item.ageInput}</td>
+                        <td>${item.statusInput}</td>
+                        <td>${item.emailInput}</td>
+                    </tr>
+            `
+        })
+
+    }
