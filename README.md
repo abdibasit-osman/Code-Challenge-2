@@ -32,9 +32,9 @@ src/index.js - for javascript logic
 ## in your terminal
 <ul>
 <li>run <strong>npm init </strong> then press <b>Enter</b></li>
-<li>continue ahead and fill the required fileds i.e package name, version, description, author, license press <b>Enter</b> </li>
+<li>continue ahead and fill the required fileds i.e package name, version, description, author, license then press <b>Enter</b> </li>
 <li>run <b>npm install prompt-sync</b> to pull prompt from sync dependency and press <b> Enter</b></li>
-<b>Enter</b>
+
 
 
 ## Author
