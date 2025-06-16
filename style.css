@@ -96,3 +96,43 @@ form{
     color: white;
     font-weight: bold;
 }
+
+ a{
+    color: rgb(1, 255, 255);
+}
+
+.deleteButton{
+    width: 80px;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(194, 2, 2);
+    color: aliceblue;
+    font-weight: bold;
+    cursor: pointer;
+}
+.deleteButton:hover{
+    background-color: rgb(201, 71, 71);
+  }
+.deleteButton:active{
+    background-color: rgb(181, 105, 105);
+  }
+
+  .rsvbButton{
+    width: 80px;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(194, 2, 2);
+    color: aliceblue;
+    font-weight: bold;
+    cursor: pointer;
+}
+.rsvbButton:hover{
+    background-color: rgb(201, 71, 71);
+  }
+.rsvbButton:active{
+    background-color: rgb(181, 105, 105);
+  }
+
+

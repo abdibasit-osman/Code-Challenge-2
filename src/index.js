@@ -33,7 +33,9 @@ formEntry.addEventListener("submit", function(e){
             return;
         }
 
-        inputArray.push({id: inputId++, nameInput: name, ageInput: age, statusInput: status, emailInput: email})
+        inputArray.push({
+            id: inputId++, nameInput: name, ageInput: age, statusInput: status, emailInput: email, rsvp: "Not Attending"
+        })
         renderFormInput();
 
     formEntry.reset();
@@ -51,7 +53,33 @@ formEntry.addEventListener("submit", function(e){
                         <td>${item.ageInput}</td>
                         <td>${item.statusInput}</td>
                         <td><a href="mailto:${item.emailInput}">${item.emailInput}</a></td>
+                        <td>
+                            <span>${item.rsvp}</span>
+                            <button onclick="toggleRSVP(${item.id})" class="rsvbButton">
+                                Toggle RSVP
+                            </button>
+                        </td>
+                        <td>
+                            <button onclick="deleteGuest(${item.id})" class="deleteButton">Delete</button>
+                        </td>
                     </tr>
             `
         })
+     }
+
+// function to delete guest
+     function deleteGuest(id){
+        inputArray = inputArray.filter (item => item.id !== id);
+        renderFormInput();
+     }
+
+// function to add rsvp toggle
+     function toggleRSVP(id){
+        inputArray = inputArray.map(item => {
+            if(item.id === id){
+                item.rsvp = item.rsvp === "Attending" ? "Attending" : "Attending";
+            }
+            return item;
+        })
+            renderFormInput();
      }
