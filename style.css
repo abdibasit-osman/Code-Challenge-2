@@ -2,19 +2,33 @@
         box-sizing: border-box;
 }
 
-body{
-    background-color: hsl(0, 0%, 70%)
+body {
+    background-color: black;
+    color: #f4f4f4;
 }
 
-header-11, h1{
+header {
+    background: black;
+    padding: 1em;
     text-align: center;
-    font-style: italic;
-    margin: 30px;
+    margin-bottom: 2rem;
 }
+
+header h1 {
+    color: #ffe082;
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+    margin: 0;
+    text-shadow: 0 2px 8px #000a;
+    font-weight: bold;
+    font-style: italic;
+}
+
 h2{
     text-align: center;
     font-weight: bold;
     margin: 30px;
+    color: #b3e5fc;
 }
 
 form{
@@ -24,20 +38,23 @@ form{
     background: #f4f7f874;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    cursor: pointer;
 }
 
   label {
     display: block;
     margin-top:0.5em;
     font-weight: bold;
+    cursor: pointer;
   }
 
   .inputs{
     width: 100%;
-    padding: 0.5em;
+    font-size: larger;
+    padding: 0.9em;
     margin-bottom: 1.2em;
-    border: 1px solid #ccccccb4;
     border-radius: 4px;
+    cursor: pointer;
 
   }
 

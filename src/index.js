@@ -7,6 +7,7 @@ const emailInput = document.getElementById("emailInput");
 const tableBody = document.getElementById("tableBody");
 
 let inputArray = [];
+let inputId = 1;
 
 //  function to add eventlistener
 formEntry.addEventListener("submit", function(e){
@@ -19,15 +20,21 @@ formEntry.addEventListener("submit", function(e){
 
    console.log({GuestName: name, guestAge: age, guestStatus: status, guestEmail: email});
 
-//  validating inputs
+//  validating inputs:
+
     if( age <= 0){
         alert('please enter correct inputs')
         return;
     }
-     if(true){
-        inputArray.push({nameInput: name, ageInput: age, statusInput: status, emailInput: email})
+
+    // Limiting the guest list to 10 people 
+        if(inputArray.length >= 10){
+            alert('List is full')
+            return;
+        }
+
+        inputArray.push({id: inputId++, nameInput: name, ageInput: age, statusInput: status, emailInput: email})
         renderFormInput();
-     }
 
     formEntry.reset();
 });
@@ -39,12 +46,12 @@ formEntry.addEventListener("submit", function(e){
         inputArray.forEach(item =>{
             tableBody.innerHTML += `
                     <tr>
+                        <th>${item.id}</th>
                         <td>${item.nameInput}</td>
                         <td>${item.ageInput}</td>
                         <td>${item.statusInput}</td>
-                        <td>${item.emailInput}</td>
+                        <td><a href="mailto:${item.emailInput}">${item.emailInput}</a></td>
                     </tr>
             `
         })
-
-    }
+     }
