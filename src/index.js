@@ -7,7 +7,6 @@ const emailInput = document.getElementById("emailInput");
 const tableBody = document.getElementById("tableBody");
 
 let inputArray = [];
-let inputId = 1;
 
 //  function to add eventlistener
 formEntry.addEventListener("submit", function(e){
@@ -29,12 +28,12 @@ formEntry.addEventListener("submit", function(e){
 
     // Limiting the guest list to 10 people 
         if(inputArray.length >= 10){
-            alert('List is full')
+            alert('list can only hold a max of 10 guests')
             return;
         }
 
         inputArray.push({
-            id: inputId++, nameInput: name, ageInput: age, statusInput: status, emailInput: email, rsvp: "Not Attending"
+            nameInput: name, ageInput: age, statusInput: status, emailInput: email, rsvp: ""
         })
         renderFormInput();
 
@@ -45,41 +44,51 @@ formEntry.addEventListener("submit", function(e){
     function renderFormInput(){
         tableBody.innerHTML = "";
 
-        inputArray.forEach(item =>{
+        inputArray.forEach((guest, idx) =>{
             tableBody.innerHTML += `
                     <tr>
-                        <th>${item.id}</th>
-                        <td>${item.nameInput}</td>
-                        <td>${item.ageInput}</td>
-                        <td>${item.statusInput}</td>
-                        <td><a href="mailto:${item.emailInput}">${item.emailInput}</a></td>
+                        <th>${idx + 1}</th>
+                        <td>${guest.nameInput}</td>
+                        <td>${guest.ageInput}</td>
+                        <td>${guest.statusInput}</td>
+                        <td><a href="mailto:${guest.emailInput}">${guest.emailInput}</a></td>
                         <td>
-                            <span>${item.rsvp}</span>
-                            <button onclick="toggleRSVP(${item.id})" class="rsvbButton">
+                            <span>${guest.rsvp}</span>
+                            <button onclick="toggleRSVP(${guest.idx})" class="rsvbButton">
                                 Toggle RSVP
                             </button>
                         </td>
                         <td>
-                            <button onclick="deleteGuest(${item.id})" class="deleteButton">Delete</button>
+                            <button onclick="deleteGuest(${idx})" class="deleteButton">Delete</button>
                         </td>
                     </tr>
             `
         })
      }
 
-// function to delete guest
-     function deleteGuest(id){
-        inputArray = inputArray.filter (item => item.id !== id);
-        renderFormInput();
-     }
-
 // function to add rsvp toggle
-     function toggleRSVP(id){
-        inputArray = inputArray.map(item => {
-            if(item.id === id){
-                item.rsvp = item.rsvp === "Attending" ? "Attending" : "Attending";
+     function toggleRSVP(idx){
+        inputArray = inputArray.map(guest => {
+            if(guest.idx === idx){
+                guest.rsvp = guest.rsvp === "false" ? "not attending" : "attending";
             }
-            return item;
+            return guest;
         })
             renderFormInput();
      }
+
+// function to add edit button
+    //  function editGuest(id){
+        
+    //  }
+
+// function to delete guest
+    //  function deleteGuest(id){
+    //     inputArray = inputArray.filter (item => item.id !== id);
+    //     renderFormInput();
+    //  }
+
+    window.deleteGuest = function(idx) {
+      inputArray.splice(idx, 1);
+      renderFormInput();
+    }
